@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import session from "express-session";
@@ -24,8 +24,8 @@ app.use(
 );
 app.use(authorizeUser);
 
-// Routes;
-app.get("/", (req, res) => {
+// Routes
+app.get("/", (req: Request, res: Response) => {
   res.json({ message: "Home Page" });
 });
 app.use("/auth", authRoute);
