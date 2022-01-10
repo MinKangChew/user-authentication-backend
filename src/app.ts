@@ -5,6 +5,8 @@ import session from "express-session";
 import cookieParser from "cookie-parser";
 import errorMiddleware from "./middlewares/error";
 import authorizeUser from "./middlewares/authorizeUser";
+import authRoute from "./features/auth/auth.route";
+import userRoute from "./features/user/user.route";
 
 const app = express();
 
@@ -26,7 +28,8 @@ app.use(authorizeUser);
 app.get("/", (req, res) => {
   res.json({ message: "API Service is Running" });
 });
-// app.use("/auth", authRoute);
+app.use("/auth", authRoute);
+app.use("/users", userRoute);
 
 // Middlewares
 app.use(errorMiddleware);
