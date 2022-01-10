@@ -26,7 +26,7 @@ app.use(authorizeUser);
 
 // Routes;
 app.get("/", (req, res) => {
-  res.json({ message: "API Service is Running" });
+  res.json({ message: "Home Page" });
 });
 app.use("/auth", authRoute);
 app.use("/users", userRoute);
