@@ -20,7 +20,7 @@ const authorizeUser = (req: Request, res: Response, next: NextFunction) => {
     const { decoded } = verifyJwt(refreshToken);
 
     if (!decoded) return next();
-    console.log("expired");
+
     const newAccessToken = signJwt(
       omit(decoded as JwtPayload, ["iat", "exp"]),
       process.env.ACCESS_TOKEN_TTL as string

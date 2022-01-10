@@ -2,8 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import session from "express-session";
-import errorMiddleware from "./middlewares/error";
 import cookieParser from "cookie-parser";
+import errorMiddleware from "./middlewares/error";
 import authorizeUser from "./middlewares/authorizeUser";
 
 const app = express();
