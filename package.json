@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only src/server.ts"
+    "start": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "db-migrate": "prisma migrate dev --name init",
+    "prisma": "prisma generate"
   },
   "author": "",
   "license": "ISC",

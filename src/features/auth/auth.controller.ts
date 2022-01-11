@@ -2,16 +2,25 @@ import { Request, Response, NextFunction } from "express";
 import catchAsyncError from "../../middlewares/catchAsyncErrors";
 import ErrorHandler from "../../utils/errorHandler";
 import { signJwt } from "../../utils/jwt.utils";
-import { createUser, findUserByUsername } from "../user/user.service";
+import {
+  createUser,
+  findUserByEmail,
+  findUserByUsername,
+} from "../user/user.service";
 import { hashPassword, validatePassword } from "./auth.service";
 
 export const registerUserHandler = catchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
-    const { username, password } = req.body;
-    const userExist = await findUserByUsername(username);
+    const { username, password, email } = req.body;
+    let userExist = await findUserByUsername(username);
 
     if (userExist)
       return next(new ErrorHandler(`Username ${username} already exist`, 400));
+
+    userExist = await findUserByEmail(email);
+
+    if (userExist)
+      return next(new ErrorHandler(`Email ${email} already exist`, 400));
 
     // hash password
     const hash = await hashPassword(password);
