@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"mjchew\",\r\n    \"email\": \"minjian@gmail.com\",\r\n    \"firstName\": \"Min Jian\",\r\n    \"lastName\": \"Chew\",\r\n    \"password\": \"qwerty\"\r\n}",
+							"raw": "{\r\n    \"username\": \"mkchew\",\r\n    \"email\": \"minkang@gmail.com\",\r\n    \"firstName\": \"Min Kang\",\r\n    \"lastName\": \"Chew\",\r\n    \"password\": \"qwerty\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
