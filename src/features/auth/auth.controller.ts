@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import catchAsyncError from "../../middlewares/catchAsyncErrors";
 import ErrorHandler from "../../utils/errorHandler";
 import { signJwt } from "../../utils/jwt.utils";
+import { CreateUser } from "../user/user.schema";
 import {
   createUser,
   findUserByEmail,
@@ -10,7 +11,11 @@ import {
 import { hashPassword, validatePassword } from "./auth.service";
 
 export const registerUserHandler = catchAsyncError(
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (
+    req: Request<{}, {}, CreateUser>,
+    res: Response,
+    next: NextFunction
+  ) => {
     const { username, password, email } = req.body;
     let userExist = await findUserByUsername(username);
 
